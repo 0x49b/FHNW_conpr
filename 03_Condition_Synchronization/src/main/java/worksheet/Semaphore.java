@@ -8,13 +8,11 @@ public final class Semaphore {
         value = initial;
     }
 
-    public int available() {
+    public synchronized int available() {
         return value;
     }
 
     public void acquire() {
-
-
         synchronized (this) {
             while (value == 0) {
                 try {
@@ -24,8 +22,6 @@ public final class Semaphore {
             }
             value--;
         }
-
-
     }
 
     public void release() {
@@ -33,7 +29,5 @@ public final class Semaphore {
             value++;
             notifyAll();
         }
-
     }
-
 }
