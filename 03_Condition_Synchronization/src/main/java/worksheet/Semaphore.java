@@ -17,7 +17,8 @@ public final class Semaphore {
             while (value == 0) {
                 try {
                     wait();
-                } catch (InterruptedException ignored) {
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
                 }
             }
             value--;
