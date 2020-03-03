@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+    id 'application' 
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+sourceCompatibility = 13
+targetCompatibility = 13
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+}
+
+javafx {
+    version = "13"
+    
+    modules = [ 'javafx.controls', 'javafx.graphics', 'javafx.base' ]
+}
+
+// eclipse plugin patch
+eclipse.classpath.file {
+    whenMerged {
+        entries.findAll { it.kind == 'lib' }.each { it.entryAttributes['module'] = 'true' }
+    }
+}
+
+mainClassName = 'as.JavaFXMandelbrot'
+
+
+task gradleWrapper(type: Wrapper)
+
+task zip(type: Zip) {
+    from projectDir
+    description "Creates student distribution."
+    group = 'distribution'
+
+    dependsOn gradleWrapper
+
+    include 'build.gradle'
+
+    include 'gradlew'
+    include 'gradlew.bat'
+    include 'gradle/**'
+
+    include 'src/main/java/*.java'
+    include 'src/main/java/lecture/*.java'
+    include 'src/main/java/worksheet/DebugMe.java'
+
+    include 'src/main/java/as/*.java'
+    exclude 'src/main/java/as/JavaFXMandelbrotSolution.java'
+}
