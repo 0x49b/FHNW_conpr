@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+}
+
+sourceCompatibility = 13
+targetCompatibility = 13
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'net.jcip:jcip-annotations:1.0'
+    compile 'junit:junit:4.12'
+}
+
+
+task gradleWrapper(type: Wrapper)
+task zip(type: Zip) {
+    from projectDir
+    description "Creates student distribution."
+    group = 'distribution'
+    
+    dependsOn gradleWrapper
+
+    include 'build.gradle'
+    
+    include 'gradle/**'
+    include 'gradlew'
+    include 'gradlew.bat'
+
+    include 'src/main/java/carpark/Car.java'
+    include 'src/main/java/carpark/CarPark.java'
+    include 'src/main/java/carpark/CarPark1.java'
+    include 'src/main/java/carpark/CarPark2.java'
+    include 'src/main/java/carpark/CarPark3.java'
+    include 'src/main/java/carpark/CarPark4.java'
+    include 'src/main/java/carpark/CarPark5.java'
+
+    include 'src/main/java/interrupt/Test1.java'
+    include 'src/main/java/interrupt/UnlockTest.java'
+
+    include 'src/main/java/worksheet/Semaphore.java'
+    include 'src/main/java/worksheet/SemaphoreTest.java'
+
+    include 'src/main/java/as/semaphore/Semaphore.java'
+    include 'src/main/java/as/semaphore/SemaphoreImpl.java'
+    include 'src/main/java/as/semaphore/SemaphoreTest.java'
+}

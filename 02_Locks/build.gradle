@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+}
+
+sourceCompatibility = 13
+targetCompatibility = 13
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'net.jcip:jcip-annotations:1.0'
+    compile 'junit:junit:4.12'
+}
+
+
+task gradleWrapper(type: Wrapper)
+task zip(type: Zip) {
+    from projectDir
+    description "Creates student distribution."
+    group = 'distribution'
+
+    dependsOn gradleWrapper
+
+    include 'build.gradle'
+    
+    include 'gradle/**'
+    include 'gradlew'
+    include 'gradlew.bat'
+
+    include 'src/main/java/lecture/Attack.java'
+    include 'src/main/java/lecture/CounterTest.java'
+    include 'src/main/java/lecture/Deadlock.java'
+    include 'src/main/java/lecture/Interleaver.java'
+    include 'src/main/java/lecture/NullSync.java'
+    include 'src/main/java/lecture/NumberRange.java'
+    include 'src/main/java/lecture/ReentrantLockTest.java'
+    include 'src/main/java/lecture/Stack.java'
+
+    include 'src/main/java/worksheet/CollectionTest.java'
+}
