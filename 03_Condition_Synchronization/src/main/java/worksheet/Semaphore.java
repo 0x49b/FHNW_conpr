@@ -15,24 +15,24 @@ public final class Semaphore {
     public void acquire() {
 
 
-
-
-
-
-
+        synchronized (this) {
+            while (value == 0) {
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                }
+            }
+            value--;
+        }
 
 
     }
 
     public void release() {
-
-
-
-
-
-
-
-
+        synchronized (this) {
+            value++;
+            notifyAll();
+        }
 
     }
 
