@@ -17,7 +17,7 @@ public final class Semaphore {
             while (value == 0) {
                 try {
                     wait();
-                } catch (InterruptedException e) {
+                } catch (InterruptedException ignored) {
                 }
             }
             value--;
