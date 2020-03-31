@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+}
+
+sourceCompatibility = 13
+targetCompatibility = 13
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+repositories {
+    jcenter()
+}
+
+dependencies {}
+
+
+task gradleWrapper(type: Wrapper)
+task zip(type: Zip) {
+    from projectDir
+    description "Creates student distribution."
+    group = 'distribution'
+
+    dependsOn gradleWrapper
+
+    include 'build.gradle'
+
+    include 'gradle/**'
+    include 'gradlew'
+    include 'gradlew.bat'
+
+    include 'src/main/java/jmm/atomic/UnatomicLong.java'
+    include 'src/main/java/jmm/Interleaver.java'
+    include 'src/main/java/jmm/JMMTest.java'
+    include 'src/main/java/jmm/stop/StoppingThreads.java'
+    include 'src/main/java/jmm/test/JMM1.java'
+    include 'src/main/java/jmm/test/JMM2.java'
+
+    include 'src/main/java/as/peterson/Main.java'
+    include 'src/main/java/as/peterson/Mutex.java'
+    include 'src/main/java/as/peterson/PetersonMutex.java'
+}
