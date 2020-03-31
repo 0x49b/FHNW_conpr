@@ -9,17 +9,28 @@ public final class SemaphoreImpl implements Semaphore {
     }
 
     @Override
-    public int available() {
+    public synchronized int available() {
         return value;
     }
 
     @Override
     public void acquire() {
-
+        synchronized (this) {
+            while (value == 0) {
+                try {
+                    wait();
+                } catch (Exception ignore) {
+                }
+            }
+            value--;
+        }
     }
 
     @Override
     public void release() {
-
+        synchronized (this) {
+            value++;
+            notifyAll();
+        }
     }
 }
