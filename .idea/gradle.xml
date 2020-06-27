@@ -15,6 +15,18 @@
         <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/02_Locks" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/6.4.1/libexec" />
+        <option name="gradleJvm" value="13 (2)" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/02_Locks" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="delegatedBuild" value="true" />
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
@@ -34,6 +46,114 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/04_JMM" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/05_Sharing_Objects" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/6.4.1/libexec" />
+        <option name="gradleJvm" value="13 (2)" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/05_Sharing_Objects" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/06_Lock_Free" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/6.4.1/libexec" />
+        <option name="gradleJvm" value="13 (2)" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/06_Lock_Free" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/07_Synchronizers" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/6.4.1/libexec" />
+        <option name="gradleJvm" value="13 (2)" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/07_Synchronizers" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/08_Tasks" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/6.4.1/libexec" />
+        <option name="gradleJvm" value="13 (2)" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/08_Tasks" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/09_Scala_Intro" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/6.4.1/libexec" />
+        <option name="gradleJvm" value="13 (2)" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/09_Scala_Intro" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/10_Scala_Conpr" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/6.4.1/libexec" />
+        <option name="gradleJvm" value="13 (2)" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/10_Scala_Conpr" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/11_Scala_STM" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/6.4.1/libexec" />
+        <option name="gradleJvm" value="13 (2)" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/11_Scala_STM" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/12_Scala_Actors" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/6.4.1/libexec" />
+        <option name="gradleJvm" value="13 (2)" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/12_Scala_Actors" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/13_Testing" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/6.4.1/libexec" />
+        <option name="gradleJvm" value="13 (2)" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/13_Testing" />
           </set>
         </option>
         <option name="useQualifiedModuleNames" value="true" />

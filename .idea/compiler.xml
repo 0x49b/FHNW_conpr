@@ -4,5 +4,14 @@
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="06_Lock_Free.main" target="13" />
+      <module name="06_Lock_Free.test" target="13" />
+      <module name="07_Synchronizers" target="11" />
+      <module name="07_Synchronizers.main" target="11" />
+      <module name="07_Synchronizers.test" target="11" />
+      <module name="10_Scala_Conpr.main" target="13" />
+      <module name="10_Scala_Conpr.test" target="13" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,0 +1,92 @@
+plugins {
+    id 'java'
+    id 'scala'
+}
+
+// 13 does not work in mixed scala / java / apt gradle projects
+sourceCompatibility = 8
+targetCompatibility = 8
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    annotationProcessor 'org.openjdk.jcstress:jcstress-core:0.5'
+    compile 'org.openjdk.jcstress:jcstress-core:0.5'
+    compile 'org.scala-lang:scala-library:2.13.2'
+    compile 'net.jcip:jcip-annotations:1.0'
+    compile 'junit:junit:4.12'
+    compile 'com.google.code.findbugs:annotations:3.0.1'
+}
+
+// sourceSets.main.java.srcDirs = ['build/generated/sources/annotationProcessor/java/main','src/main/java']
+
+
+task jcsCounter(dependsOn: 'classes', type: JavaExec) {
+    group = 'jcstress'
+    main = 'org.openjdk.jcstress.Main'
+    classpath = sourceSets.main.runtimeClasspath
+    print(sourceSets.main.runtimeClasspath)
+    args '-t *JCStressCounter*'
+}
+
+task jcsJMMTest(dependsOn: 'classes', type: JavaExec) {
+    group = 'jcstress'
+    main = 'org.openjdk.jcstress.Main'
+    classpath = sourceSets.main.runtimeClasspath
+    args '-t *JMMTest*'
+}
+
+task jcsInterleaving(dependsOn: 'classes', type: JavaExec) {
+    group = 'jcstress'
+    main = 'org.openjdk.jcstress.Main'
+    classpath = sourceSets.main.runtimeClasspath
+    args '-t *InterleavingTest*'
+}
+
+
+
+task gradleWrapper(type: Wrapper)
+task zip(type: Zip) {
+    from projectDir
+    description "Creates student distribution."
+    group = 'distribution'
+
+    dependsOn gradleWrapper
+
+    include 'build.gradle'
+    
+    include 'gradle/**'
+    include 'gradlew'
+    include 'gradlew.bat'
+
+
+    include 'src/main/java/demo/DemoCounter.java'
+
+    include 'src/main/java/spotbugs/A.java'
+    include 'src/main/java/spotbugs/B.java'
+    include 'src/main/java/spotbugs/C.java'
+    include 'src/main/java/spotbugs/D.java'
+    include 'src/main/java/spotbugs/E.java'
+    include 'src/main/java/spotbugs/F.java'
+    include 'src/main/java/spotbugs/G.java'
+    include 'src/main/java/spotbugs/H.java'
+    include 'src/main/java/spotbugs/I.java'
+
+
+    include 'src/main/java/jcstress/ArbiterTest.java'
+    include 'src/main/java/jcstress/InterleavingTest.java'
+    include 'src/main/java/jcstress/JCStressCounter.java'
+    include 'src/main/java/jcstress/JMM.java'
+    // include 'src/main/java/jcstress/JMMTest.java' // Student Solution
+
+    include 'src/main/scala/spin/Models.scala'
+    include 'src/main/scala/spin/Spin.scala'
+
+    include 'spin/**'
+
+    include 'promela/model.pml'
+}

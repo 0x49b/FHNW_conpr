@@ -1,0 +1,73 @@
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+sourceCompatibility = 13
+targetCompatibility = 13
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'net.jcip:jcip-annotations:1.0'
+    compile 'junit:junit:4.12'
+}
+
+javafx {
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.graphics', 'javafx.base' ]
+}
+
+// eclipse plugin patch
+eclipse.classpath.file {
+	whenMerged {
+		entries.findAll { it.kind == 'lib' }.each { it.entryAttributes['module'] = 'true' }
+    }
+}
+
+
+task gradleWrapper(type: Wrapper)
+task zip(type: Zip) {
+    from projectDir
+    description "Creates student distribution."
+    group = 'distribution'
+
+    dependsOn gradleWrapper
+
+    include 'build.gradle'
+    
+    include 'gradle/**'
+    include 'gradlew'
+    include 'gradlew.bat'
+
+
+    include 'src/main/java/init/Main.java'
+
+    include 'src/main/java/le/BadFormatter.java'
+    include 'src/main/java/le/Bank.java'
+    include 'src/main/java/le/WhereIsMyMapEntry.java'
+
+    include 'src/main/java/thisescapes/EventListener.java'
+    include 'src/main/java/thisescapes/EventSource.java'
+    include 'src/main/java/thisescapes/ThisEscape.java'
+    include 'src/main/java/thisescapes/ThisNotEscape.java'
+
+    include 'src/main/java/thisescapes/ThisEscape1.java'
+    include 'src/main/java/thisescapes/ThisEscape2.java'
+    include 'src/main/java/thisescapes/ThisEscape3.java'
+    include 'src/main/java/thisescapes/ThisNotEscape.java'
+
+    include 'src/main/java/threadlocal/InheritableThreadLocalTest.java'
+    include 'src/main/java/threadlocal/ThreadLocalTest.java'
+    include 'src/main/java/threadlocal/random/RandomTest.java'
+
+    include 'src/main/java/as/list/IList.java'
+    include 'src/main/java/as/set/ITreeSet.java'
+    include 'src/main/java/as/set/TreeSet.java'
+    include 'src/main/java/as/set/ITreeSetTest.java'
+}

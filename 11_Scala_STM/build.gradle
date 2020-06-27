@@ -1,0 +1,40 @@
+plugins {
+    id 'scala'
+}
+
+// > 8 doesn't work
+sourceCompatibility = 13
+targetCompatibility = 13
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.scala-lang:scala-library:2.13.2'
+    compile 'org.scala-stm:scala-stm_2.13:0.9.1'
+    compile 'org.scala-lang.modules:scala-parallel-collections_2.13:0.2.0'
+}
+
+task gradleWrapper(type: Wrapper)
+task zip(type: Zip) {
+    from projectDir
+    description "Creates student distribution."
+    group = 'distribution'
+
+    dependsOn gradleWrapper
+
+    include 'build.gradle'
+    
+    include 'gradle/**'
+    include 'gradlew'
+    include 'gradlew.bat'
+
+    include 'src/main/scala/le/CheatSheet.scala'
+    include 'src/main/scala/le/Examples.scala'
+
+    include 'src/main/scala/ws/WSSTM_1.scala'
+    include 'src/main/scala/ws/WSSTM_2.scala'
+}

@@ -1,5 +1,7 @@
 package jmm.stop;
 
+import java.util.concurrent.ConcurrentLinkedQueue;
+
 public class StoppingThreads {
 
     static class StoppableThread extends Thread {

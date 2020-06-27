@@ -1,0 +1,45 @@
+plugins {
+    id 'scala'
+//  id 'java'
+    id 'eclipse'
+    id 'idea'
+}
+
+sourceCompatibility = 11
+targetCompatibility = 11
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.scala-lang:scala-library:2.13.2'
+}
+
+
+task gradleWrapper(type: Wrapper)
+task zip(type: Zip) {
+    from projectDir
+    description "Creates student distribution."
+    group = 'distribution'
+
+    dependsOn gradleWrapper
+
+    include 'build.gradle'
+
+    include 'gradle/**'
+    include 'gradlew'
+    include 'gradlew.bat'
+
+
+    include 'src/main/java/book/Book.java' 
+    include 'src/main/java/book/Java8Library.java' 
+    include 'src/main/java/book/JavaLibrary.java' 
+
+    include 'src/main/scala/book/ScalaLibrary.scala' 
+    include 'src/main/scala/functions/WS_Functions.scala'
+    include 'src/main/scala/intro/NSACryptoTool.scala'
+    include 'src/main/scala/intro/ScalaCheatSheet.scala'
+}

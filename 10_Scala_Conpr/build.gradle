@@ -1,0 +1,77 @@
+plugins {
+    id 'scala'
+}
+
+sourceCompatibility = 13
+targetCompatibility = 13
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile 'org.scala-lang:scala-library:2.13.2'
+    compile 'org.scala-lang.modules:scala-parallel-collections_2.13:0.2.0'
+
+    compile 'io.reactivex:rxscala_2.13:0.27.0'
+    compile 'io.reactivex:rxswing:0.27.0'
+    compile 'org.json:json:20180813'
+    compile 'jline:jline:2.14.6'
+}
+
+
+
+task gradleWrapper(type: Wrapper)
+task zip(type: Zip) {
+    from projectDir
+    description "Creates student distribution."
+    group = 'distribution'
+
+    dependsOn gradleWrapper
+
+    include 'build.gradle'
+
+    include 'gradle/**'
+    include 'gradlew'
+    include 'gradlew.bat'
+
+
+    include 'src/main/resources/na_armU.dmel.RELEASE5' 
+    include 'src/main/scala/collections/Google.sc'
+    include 'src/main/scala/collections/GoogleIn10LinesOfCode.scala'
+    include 'src/main/scala/collections/ImmutableCollections.scala'
+    include 'src/main/scala/collections/Lists.sc'
+    include 'src/main/scala/collections/ParallelCollections.scala'
+    include 'src/main/scala/collections/ParallelProblems.scala'
+    include 'src/main/scala/collections/ParMap.scala'
+
+    include 'src/main/scala/futures/AsyncGoogle.scala'
+    include 'src/main/scala/futures/MoreFutureExamples.scala'
+
+    include 'src/main/scala/observables/Comparison.scala'
+    include 'src/main/scala/observables/OldUglyPaint.scala'
+    include 'src/main/scala/observables/RxExample.scala'
+    include 'src/main/scala/observables/ShinyNewPaint.scala' 
+
+    include 'src/main/scala/other/ByName.scala' 
+    include 'src/main/scala/other/Implicits.scala' 
+    include 'src/main/scala/other/PartialFunctions.scala'
+
+    include 'src/main/scala/primitives/BoundedBuffer.scala'
+    include 'src/main/scala/primitives/ElegantAtomicReference.scala'
+    include 'src/main/scala/primitives/ThreadLocal.scala'
+
+    include 'src/main/scala/ws/collections/SyncEvento.scala'
+    include 'src/main/scala/ws/collections/SyncEventoClient.scala'
+
+    include 'src/main/scala/ws/common/EventoDB.scala'
+    include 'src/main/scala/ws/common/Student.scala'
+
+    include 'src/main/scala/ws/observables/AsyncEvento.scala'
+    include 'src/main/scala/ws/observables/AsyncEventoClient.scala'
+
+    include 'src/main/scala/as/irc/RxIrcBot.scala'
+}

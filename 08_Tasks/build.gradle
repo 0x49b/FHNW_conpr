@@ -1,0 +1,57 @@
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+}
+
+sourceCompatibility = 13
+targetCompatibility = 13
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'net.jcip:jcip-annotations:1.0'
+    compile 'junit:junit:4.12'
+    compile group: 'org.jsoup', name: 'jsoup', version: '1.11.3'
+}
+
+
+task gradleWrapper(type: Wrapper)
+task zip(type: Zip) {
+    from projectDir
+    description "Creates student distribution."
+    group = 'distribution'
+    
+    dependsOn gradleWrapper
+
+    include 'build.gradle'
+
+    include 'gradle/**'
+    include 'gradlew'
+    include 'gradlew.bat'
+
+
+    include 'src/main/java/le/ExecutorTermination.java'
+    include 'src/main/java/le/MyThreadPoolExecutor.java'
+    include 'src/main/java/le/PeriodicExecutors.java'
+    include 'src/main/java/le/VIPExecutor.java'
+    include 'src/main/java/le/WebServer1.java'
+    include 'src/main/java/le/WebServer2.java'
+    include 'src/main/java/le/WebServer3.java'
+    include 'src/main/java/le/WebServer4.java'
+    include 'src/main/java/le/fj/FJMergeSortSharedIntArray.java'
+    include 'src/main/java/le/fj/Mandelbrot.java'
+    include 'src/main/java/le/fj/MandelbrotFJ.java'
+    include 'src/main/java/le/fj/Sum.java'
+
+    include 'src/main/java/ws/MS1.java'  
+
+    include 'src/main/java/as/concrawler/ConCrawler.java'
+    include 'src/main/java/as/concrawler/Crawler.java'
+    include 'src/main/java/as/concrawler/SeqCrawler.java'
+}
+

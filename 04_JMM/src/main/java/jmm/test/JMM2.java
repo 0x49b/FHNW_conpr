@@ -1,14 +1,15 @@
 package jmm.test;
 
 public class JMM2 {
+
     private static class Person {
         private String name;
 
-        public String getName() {
+        public  String getName() {
             return name;
         }
 
-        public void setName(String name) {
+        public  void setName(String name) {
             this.name = name;
         }
     }

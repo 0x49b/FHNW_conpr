@@ -8,6 +8,16 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/02_Locks" />
+    <file type="web" url="file://$PROJECT_DIR$/05_Sharing_Objects" />
+    <file type="web" url="file://$PROJECT_DIR$/06_Lock_Free" />
+    <file type="web" url="file://$PROJECT_DIR$/07_Synchronizers" />
+    <file type="web" url="file://$PROJECT_DIR$/09_Scala_Intro" />
+    <file type="web" url="file://$PROJECT_DIR$/10_Scala_Conpr" />
+    <file type="web" url="file://$PROJECT_DIR$/12_Scala_Actors" />
+    <file type="web" url="file://$PROJECT_DIR$/13_Testing" />
+  </component>
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
